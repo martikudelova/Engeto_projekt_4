@@ -23,10 +23,12 @@ Celkem třikrát klesly mzdy těmto odvětvím:
  - Těžba a dobývání
  - Ubytování, stravování a pohostinství
  - Veřejná správa a obrana; povinné sociální zabezpečení, kterým mzdy klesly za zkoumané období celkem třikrát a odvětví
+
 A celkem dvakrát těmto odvětvím:
  - Kulturní, zábavní a rekreační činnosti,
  - Vzdělávání
  - Zemědělství, lesnictví, rybářství
+
 Rok 2013 negativně ovlivnil mzdy u 11 odvětví. Pojďme se podívat, kterým odvětvím v tomto roce mzdy vzrostly.
  - Doprava a skladování
  - Ostatní činnosti
@@ -53,9 +55,13 @@ V tomto případě použijeme klauzuli HAVING, kde počítáme počet výskytů 
 
 ### 2.Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
 Pomocí operátoru ILIKE najdeme kód pro chléb a pro mléko.
+
 Ve svém scriptu jsem použila funkce MIN a MAX v klauzuli WHERE ve vnořeném SELECTu, takto najdeme první a poslední rok s cenami potravin, ale zároveň si musíme pojistit, že za tyto roky máme i data ke mzdám. Dosáhneme toho pomocí podmínky, která zajistí, že průměrné platy budou mít nějaká data. Další podmínka hledá data pouze pro požadované dvě potraviny. Data pro tyto dva roky pak sloučíme pomocí funkce UNION.
+
 Další vnořený SELECT je použitý u FROM, tam počítáme průměrný roční plat a průměrnou roční cenu potravin.  Opět používáme stejné podmínky jako u předchozího vnořeného SELECTu.
+
 V hlavním SELECTu si ukážeme roky pro srovnatelné období a dva nové sloupce, které nám počítají průměr ze vzorce mzda / cena pro chleba nebo pro mléko a zaokrouhlují tento počet na koruny dolů.
+
 Výsledek vypadá takto:
 
 | Rok  | Počet chleba (kg) | Počet mléka (l) |
@@ -70,16 +76,19 @@ Pokud nás zajímá celkový trend přes celé zkoumané období, můžeme využ
 
 ### 4.Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
 Pro tuto otázku jsem použila dvě CTE, první CTE nám vyfiltruje společné roky pro data ke mzdám a cenám potravin, druhé CTE nám k těmto datům přidá dva sloupce s meziročními nárůsty a jeden sloupec s rozdílem těchto hodnot a na závěr si z těchto dat vyfiltrujeme roky, kde byl nárůst cen potravin o 10% a více větší než nárůst cen mezd -> žádný. 
+
 Pro kontrolu jsem si našla rozdíly v nárůstech sestupně, nejblíže k 10% je rok 2013, s hodnotou 6,7%.
 
 ### 5.Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?
 Data o HDP máme v tabulce, kterou jsem nepřidala do hlavního datasetu. Proto si ho upravím pomocí příkazu ALTER TABLE, kdy přidám nový sloupec, a pomocí UPDATE table vložím data z připraveného SELECTu.
 
 Poté pokračujeme podobně, jako v předchozí otázce. Pomocí dvou CTE si najdeme roky a pomocí druhé CTE k nim doplníme meziroční nárůsty, HDP, cen a mezd.
+
 Výraznější nárůsty HDP (nad 5%) jsme zaznamenali ve třech letech:
  - 2007 – ceny a mzdy v tomto a následujícím roce vzrostly o 6 až 7 procent
  - 2015 – ceny se v tomto a následujícím roce snížily a mzdy rostly o 2 až 3 procenta
  - 2017 – ceny a mzdy se výrazně zvýšily o 9 a 6 procent a následující rok o 2 a 7 procent
+
 Poklesy HDP jsme zaznamenali v těchto letech:
  - 2009 – HDP pokleslo o necelých 5 procent, ceny o 6 a mzdy vzrostly, následující rok ceny i mzdy vzrostly
  - 2012 a 2013 – v těchto letech byl nepatrný pokles HDP, ceny až do roku 2014 rostly, mzdy vzrostly, následující rok poklesly, a pak zase vzrostly
