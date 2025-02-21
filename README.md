@@ -10,9 +10,9 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 ## Výzkumné otázky
 ### 1.Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 
-Z data setu si vytvoříme dočasnou tabulku, jelikož budeme chtít z těchto dat získat více informací. Do této dočasné tabulky přidáme 2 sloupce, jeden nám ukáže hodnotu mzdy pro dané odvětví za minulý rok a další sloupec nám řekne, jestli mzda vzrostla, klesla nebo zůstala stejná. Tvorba dočasné tabulky obsahuje vnořený SELECT, pomocí kterého vypočítáme průměrné mzdy pro všechna odvětví za dané roky.
-Po zobrazení dočasné tabulky pohledem zjistíme, že se mzdy zvýšily pro všechna odvětví ve většině let.
-Pomocí funkcí MIN, MAX a COUNT + DISTINCT, zjistíme, že zkoumáme data pro 19 odvětví v letech 2000 až 2021. 
+Z data setu si vytvoříme dočasnou tabulku, jelikož budeme chtít z těchto dat získat více informací. Do této dočasné tabulky přidáme 2 sloupce, jeden nám ukáže hodnotu mzdy pro dané odvětví za minulý rok a další sloupec nám řekne, jestli mzda vzrostla, klesla nebo zůstala stejná. Tvorba dočasné tabulky obsahuje vnořený SELECT, pomocí kterého vypočítáme průměrné mzdy pro všechna odvětví za dané roky.  
+Po zobrazení dočasné tabulky pohledem zjistíme, že se mzdy zvýšily pro všechna odvětví ve většině let.  
+Pomocí funkcí MIN, MAX a COUNT + DISTINCT, zjistíme, že zkoumáme data pro 19 odvětví v letech 2000 až 2021.   
 V roce 2013 se snížily pro 11 odvětví a v roce 2021 pro 5 odvětví. V ostatních letech mzdy klesly maximálně pro 1 až 3 odvětví. Tyto informace získáme, když si dáme podmínku do klauzule WHERE a seřadíme odvětví podle počtu výskytů.
 Když z tabulky schováme data pro roky 2013, jednoduše zjistíme, kterým odvětvím nejčastěji klesly průměrné roční mzdy. 
 Celkem třikrát klesly mzdy těmto odvětvím:
