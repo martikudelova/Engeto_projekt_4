@@ -20,10 +20,6 @@ CREATE TABLE t_Martina_Kudelova_project_SQL_primary_final AS
         cpc.name
 ORDER BY year;
 
--- Dataset Select a DROP
-SELECT *
-FROM t_Martina_Kudelova_project_SQL_primary_final; 
---DROP TABLE t_Martina_Kudelova_project_SQL_primary_final;
 
 
 -- Tvorba druhého datasetu
@@ -42,10 +38,6 @@ CREATE TABLE t_Martina_Kudelova_project_SQL_secondary_final AS
     		)
     ORDER BY country, year;
 
--- Dataset Select a DROP
-SELECT *
-FROM t_Martina_Kudelova_project_SQL_secondary_final; 
---DROP TABLE t_Martina_Kudelova_project_SQL_secondary_final;
 
 
 
