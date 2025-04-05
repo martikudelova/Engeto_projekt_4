@@ -94,6 +94,6 @@ Poklesy HDP jsme zaznamenali v těchto letech:
  - 2012 a 2013 – v těchto letech byl nepatrný pokles HDP, ceny až do roku 2014 rostly, mzdy vzrostly, následující rok poklesly, a pak zase vzrostly
 
 Z výsledků těchto dat můžeme soudit, že HDP nemá vliv na ceny potravin ani na výši mezd.
-Pro přesnější analýzu by byla vhodnější regresní analýzu a / nebo otestovat korelaci.
+Pro přesnější analýzu by bylo vhodnější použít regresní analýzu a / nebo otestovat korelaci.
 
 
